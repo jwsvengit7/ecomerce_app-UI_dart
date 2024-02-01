@@ -14,17 +14,75 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return Container(
+  return 
+  Container(
     padding: const EdgeInsets.only(left: 30, right: 30),
     child: TextField(
       obscureText: obscureText,
       controller: controller,
+      
       decoration: InputDecoration(
         filled: true,
         fillColor: Color.fromARGB(231, 246, 246, 245),
         
         enabledBorder: InputBorder.none,
         hintText: hintText,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(
+            color: Color.fromARGB(41, 93, 93, 93),
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(
+            color: Color.fromARGB(41, 93, 93, 93), 
+         
+            style: BorderStyle.solid
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+}
+
+
+class InputFieldSearch extends StatefulWidget {
+
+  final String hintText;
+  final bool obscureText;
+  final TextEditingController controller;
+
+   InputFieldSearch({super.key, 
+    required this.hintText,
+    this.obscureText = false,
+    required this.controller,
+  });
+  InputFieldSearchState createState()=> InputFieldSearchState();
+
+}
+class InputFieldSearchState extends State<InputFieldSearch>{
+
+  @override
+  Widget build(BuildContext context) {
+  return 
+  Container(
+    padding: const EdgeInsets.only(left: 30, right: 30),
+    child: TextField(
+      obscureText: widget.obscureText,
+      controller: widget.controller,
+      onChanged: (value){
+
+      },
+      
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Color.fromARGB(231, 246, 246, 245),
+        
+        enabledBorder: InputBorder.none,
+        hintText: widget.hintText,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(

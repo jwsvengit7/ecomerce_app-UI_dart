@@ -64,7 +64,7 @@ class LoginState extends State<Login> {
               children: [
                 Text("Don't Have an Account"),
                 InkWell(
-                    child: const Text(
+                    child:  Text(
                   "Signup",
                   style: TextStyle(color: Colors.blue),
                 ))

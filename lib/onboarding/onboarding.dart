@@ -13,16 +13,16 @@ class Onboarding extends StatelessWidget {
           pages: [
             // Page 1
             PageViewModel(
-              title: 'A chance to start winning',
+              title: 'A chance to start buying for the new seasons',
               body: 'We are ready to buy your Giftcards',
               image: buildImage('assets/people.png'),
               decoration: getPageDecoration(),
             ),
 
             PageViewModel(
-              title: 'Crypto Currencies',
-              body: 'We have the top coins to invset on',
-              image: buildImage('assets/giftcard.png'),
+              title: 'School Items',
+              body: 'We have the top items to pick on our store',
+              image: buildImage('assets/school1-removebg-preview.png'),
               decoration: getPageDecoration(),
             ),
 
@@ -31,7 +31,7 @@ class Onboarding extends StatelessWidget {
               title: 'Today a reader, tomorrow a leader',
               body: 'Start your journey',
               footer: Text(""),
-              image: buildImage('assets/tel.jpeg'),
+              image: buildImage('assets/ic_launcher.png'),
               decoration: getPageDecoration(),
             ),
           ],
