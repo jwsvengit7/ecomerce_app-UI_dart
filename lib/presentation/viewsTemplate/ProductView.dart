@@ -68,79 +68,78 @@ class ProductViewState extends State<ProductView> {
         child: GridView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: seeAllClicked ? widget.product.length : 4,
+        itemCount: seeAllClicked ? widget.product.length : (widget.product.length > 0 ? widget.product.length : 1),
+
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             childAspectRatio: 0.90,
           ),
-          itemBuilder: (BuildContext context, int index) {
-            final item = widget.product[index];
-            print(item.image);
-            String formattedAmount =
-                NumberFormat.currency(symbol: '\$', decimalDigits: 2)
-                    .format(item.amount);
+        itemBuilder: (BuildContext context, int index) {
+  final item = index < widget.product.length ? widget.product[index] : null;
 
-            return Card(
-              color: Colors.white,
-              elevation: 2,
-              child: Center(
-                child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.white,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(item.image,
-                            width: MediaQuery.of(context).size.width,
-                            height: 100),
-                        Text(
-                          item.name,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 10),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(
-                                formattedAmount,
-                                style: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              Text(formattedAmount),
-                              Container(
-                                alignment: Alignment.center,
-                                width: 20,
-                                height: 20,
-                                child: Text("**"),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.orange,
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                    //    CachedNetworkImage(
-                    //   imageUrl: "https://res.cloudinary.com//ksbtech//image//upload//v1638374336//okkk_gqb4ie.jpg",
-                    //   fit: BoxFit.contain,
-                    //   placeholder: (context, url) => CircularProgressIndicator(), // Show a placeholder while the image is loading
-                    //   errorWidget: (context, url, error) => Icon(Icons.error), // Show an error icon if the image fails to load
-                    //   fadeInDuration: Duration(milliseconds: 500), // Duration for the fade-in effect
-                    // ),
+  if (item != null) {
+    String formattedAmount =
+        NumberFormat.currency(symbol: '\$', decimalDigits: 2)
+            .format(item.amount);
 
-                    ),
+    return Card(
+      color: Colors.white,
+      elevation: 2,
+      child: Center(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          color: Colors.white,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(item.image,
+                  width: MediaQuery.of(context).size.width,
+                  height: 100),
+              Text(
+                item.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 10),
               ),
-            );
-          },
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      formattedAmount,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(formattedAmount),
+                    Container(
+                      alignment: Alignment.center,
+                      width: 20,
+                      height: 20,
+                      child: Text("**"),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.orange,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  } else {
+    // Handle the case where item is null (you can return a placeholder or an empty container)
+    return Container();
+  }
+},
+
         ),
       ),
       if (ProductRepositories.products.isEmpty)

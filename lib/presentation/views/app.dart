@@ -49,23 +49,25 @@ void initState(){
 
 
   List<Product> getFilteredAndSortedProducts() {
-    List<Product> filteredProducts = ProductRepositories.products;
+List<Product> filteredProducts = ProductRepositories.products;
 
-    if (selectedFilter != 'All') {
-      filteredProducts = ProductRepositories.products
-          .where((product) {
-              print(product.category  == selectedFilter);
-            return product.category == selectedFilter;
-    })
-          .toList();
-        
+  if (selectedFilter != null && selectedFilter != 'All') {
+    filteredProducts = ProductRepositories.products
+      .where((product) {
+        print(product.category == selectedFilter);
+        return product.category == selectedFilter;
+      })
+      .toList();
+
+    if (filteredProducts.isEmpty) {
+      return [];
     }
+  }
 
     filteredProducts = filteredProducts
-        .where((product) => product.name
-            .toLowerCase()
-            .contains(searchController.text.toLowerCase()))
-        .toList();
+    .where((product) =>
+        product.name.toLowerCase().contains(searchController.text?.toLowerCase() ?? ''))
+    .toList();
 
     filteredProducts.sort((a, b) {
       return isAscending
@@ -200,7 +202,7 @@ void initState(){
                   items: <String>[
                     'All',
                     'Electronics',
-                    'Furniture','School Items',
+                   'School Items',
                     'Accessories','House Kit'
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
