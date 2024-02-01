@@ -200,8 +200,7 @@ void initState(){
                   items: <String>[
                     'All',
                     'Electronics',
-                    'Furniture',
-                    'Training Equipment','School Items',
+                    'Furniture','School Items',
                     'Accessories','House Kit'
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(

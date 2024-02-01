@@ -14,7 +14,7 @@ class ProductRepositories {
     Product(id: 9, name: "Iphone 14", image: "assets/iphone14.jpeg", category: "Accessories", type: "Type 3", amount: 19.99),
     Product(id: 10, name: "Casual Shoe", image: "assets/pngtree-casual-shoes-png-image_2402399.jpeg", category: "House Kit", type: "Type 1", amount: 24.99),
     Product(id: 11, name: "Book", image: "assets/book2.png", category: "School Items", type: "Type 1", amount: 23.99),
-    Product(id: 12, name: "Televison ++", image: "assets/tel.png", category: "Electronics", type: "Type 2", amount: 26.99),
+    Product(id: 12, name: "Televison ++", image: "assets/tel.jpeg", category: "Electronics", type: "Type 2", amount: 26.99),
     Product(id: 13, name: "Iphone 13", image: "assets/ipohine13.jpeg", category: "Accessories", type: "Type 3", amount: 29.99),
   ];
 }
