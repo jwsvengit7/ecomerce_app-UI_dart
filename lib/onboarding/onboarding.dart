@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:light_height_ecomerce_app/presentation/views/app.dart';
 import 'package:light_height_ecomerce_app/presentation/views/login.dart';
 
 class Onboarding extends StatelessWidget {
@@ -60,7 +61,7 @@ class Onboarding extends StatelessWidget {
 void goToHome(context) {
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (_) => const Login()),
+    MaterialPageRoute(builder: (_) =>  App()),
   );
 }
 

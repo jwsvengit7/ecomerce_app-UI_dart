@@ -45,19 +45,22 @@ class LoginState extends State<Login> {
               controller: _password,
             ),
             SizeUtils.sizedboxHeight(20),
-            ElevatedButton(
-                onPressed: signup,
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 10, 179, 240)),
-                child: Container(
-                  width: 300,
-                  height: 60,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    "Next",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: signup,
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 10, 179, 240)),
+                  child: Container(
+                    width: 250,
+                    height: 60,
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Next",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )),
+            ),
             SizeUtils.sizedboxHeight(20),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -77,9 +80,7 @@ class LoginState extends State<Login> {
   }
 
   void signup() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (_) => App()),
-    );
+       Navigator.push(
+            context, MaterialPageRoute(builder: (context) => App()));
   }
 }
